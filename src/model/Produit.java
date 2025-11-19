@@ -1,9 +1,12 @@
 package src.model;
 
+import java.util.ArrayList;
+
 public class Produit {
     private int id;
     private String nom;
     private String description;
+    private ArrayList<Lot> lots;
 
     public Produit(int id, String nom, String description) {
         this.id = id;
@@ -43,6 +46,15 @@ public class Produit {
 
     @Override
     public String toString() {
-        return "Produit{" + "id=" + id + ", nom=" + nom + ", description=" + description + '}';
+        return nom + " : " + description;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj instanceof Produit) {
+            Produit p = (Produit) obj;
+            return p.getId() == this.getId();
+        }
+        return false;
     }
 }

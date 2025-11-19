@@ -47,7 +47,9 @@ public class MenuPrincipal {
     }
 
     private void consulterAlertes() {
-        // affichage des produits bientôt périmés
+        LotDAO lotDAO = new LotDAO();
+        lotDAO.getPerimeLots();
+
     }
 
     private void cloturerCommande() {

@@ -2,7 +2,7 @@ package src.dao;
 import java.sql.*;
 
 public class DatabaseConnection {
-    static final String CONN_URL = "jdbc:oracle:thin:@oracle1.ensimag.fr:1521:oracle1";
+    static final String CONN_URL = "jdbc:oracle:thin:@oracle1:1521:oracle1";
     static final String USER = "khamlica";
     static final String PASSWD = "khamlica";
 

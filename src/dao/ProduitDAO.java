@@ -4,19 +4,24 @@ import java.sql.*;
 import java.util.*;
 
 public class ProduitDAO {
-    public List<Produit> getCatalogue() {
-        List<Produit> produits = new ArrayList<>();
+    ArrayList<Produit> produits;
+
+    // --- Init ---
+    public ProduitDAO() {
+        produits = new ArrayList<>();
+    }
+
+    public ArrayList<Produit> getCatalogue() {
         String sql = "SELECT * FROM produit";
 
         try (Connection conn = DatabaseConnection.getConnection();
              Statement stmt = conn.createStatement();
              ResultSet rs = stmt.executeQuery(sql)) {
-
             while (rs.next()) {
                 Produit p = new Produit();
-                p.setId(rs.getInt("id"));
-                p.setNom(rs.getString("nom"));
-                p.setDescription(rs.getString("description"));
+                p.setId(rs.getInt("IDPRODUIT"));
+                p.setNom(rs.getString("NOMPRODUIT"));
+                p.setDescription(rs.getString("DESCRIPTIONPRODUIT"));
                 produits.add(p);
             }
         } catch (SQLException e) {
