@@ -55,7 +55,16 @@ public class MenuPrincipal {
     }
 
     private void passerCommande() {
-        // logique de saisie produits + insertion via CommandeDAO
+        System.out.print("Souhaitez vous ajouter un lot à votre commande? [ y/n ] : ");
+        Scanner scan = new Scanner(System.in);
+        while (scan.nextLine().equals("y")) {
+            CommandeDAO commandeDAO = new CommandeDAO();
+            int  idClient = 0;
+            String dateCommande = "";
+            commandeDAO.insertLigneDeCommande(idClient, dateCommande);
+            System.out.print("Souhaitez vous ajouter un lot à votre commande? [ y/n ] : ");
+        }
+        System.out.println("Merci pour votre commande, Bonne journée !");
     }
 
     private void consulterAlertes() {

@@ -70,4 +70,25 @@ public class ProduitDAO {
         return contenants;
     }
 
+    public boolean estDispo (int id) {
+
+        try {
+            Connection conn = DatabaseConnection.getConnection();
+            PreparedStatement statement = conn.prepareStatement(
+                    "SELECT COUNT(*) " +
+                            "FROM ProduitEstDispo " +
+                            "WHERE idProduit = ? " +
+                            "AND TO_CHAR(SYSDATE, 'YYYY-MM-DD') BETWEEN dateDebut AND dateFin"
+            );
+            statement.setInt(1, id);
+            ResultSet rs = statement.executeQuery();
+            if (rs.next()) {
+                return rs.getInt("count(*)") > 0;
+            }
+        }
+        catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
 }

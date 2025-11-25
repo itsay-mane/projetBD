@@ -64,9 +64,9 @@ public class Produit {
     @Override
     public String toString() {
         if (dateDebut != null) {
-            return nom + " : " + description + "( disponible du " + dateDebut + " au " + dateFin + " )";
+            return " [id: " + id + "] " + nom + ": " + description + "( disponible du " + dateDebut + " au " + dateFin + " )";
         }
-        return nom + " : " + description + " (indisponible) ";
+        return " [id: " + id + "] " + nom + " : " + description + " (indisponible) ";
     }
 
     @Override

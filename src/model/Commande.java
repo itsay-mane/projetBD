@@ -1,11 +1,14 @@
 package src.model;
 
+import java.util.ArrayList;
+
 public class Commande {
     private String date;
     private int heure;
     private String statutCommande;
     private String modePaiement;
     private String modeRecuperation;
+    private ArrayList<Lot> lots;
 
     public int getHeure() {
         return heure;
@@ -45,6 +48,5 @@ public class Commande {
 
     public void setModeRecuperation(String modeRecuperation) {
         this.modeRecuperation = modeRecuperation;
-
     }
 }
