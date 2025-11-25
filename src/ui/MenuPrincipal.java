@@ -38,8 +38,20 @@ public class MenuPrincipal {
     }
 
     private void consulterCatalogue() {
-        List<Produit> produits = produitDAO.getCatalogue();
+        System.out.println("PRODUITS ALIMENTAIRES :");
+        System.out.println("-------------------------------------------------");
+
+        List<Produit> produits = produitDAO.getProduitAlimentaires();
         produits.forEach(System.out::println);
+
+        System.out.println("");
+        System.out.println("CONTENANTS :");
+        System.out.println("-------------------------------------------------");
+
+        List<Contenant> contenants = produitDAO.getContenants();
+        contenants.forEach(System.out::println);
+
+        System.out.println("");
     }
 
     private void passerCommande() {

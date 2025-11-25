@@ -18,7 +18,7 @@ public class LotDAO {
         try (Connection conn = DatabaseConnection.getConnection();
              Statement stmt = conn.createStatement();
              ResultSet rs = stmt.executeQuery(sql)) {
-            List<Produit> produits = produitDAO.getCatalogue();
+            List<Produit> produits = produitDAO.getProduitAlimentaires();
             while (rs.next()) {
                 int id = rs.getInt("idProduit");
                 String nom = "";

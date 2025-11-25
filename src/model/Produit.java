@@ -6,6 +6,8 @@ public class Produit {
     private int id;
     private String nom;
     private String description;
+    private String dateDebut = null;
+    private String dateFin = null;
     private ArrayList<Lot> lots;
 
     public Produit(int id, String nom, String description) {
@@ -37,6 +39,21 @@ public class Produit {
         this.nom = nom;
     }
 
+    public void setDateDebut
+            (String dateDebut) {
+        this.dateDebut = dateDebut;
+    }
+    public String getDateDebut() {
+        return dateDebut;
+    }
+
+    public void setDateFin(String dateFin) {
+        this.dateFin = dateFin;
+    }
+    public String getDateFin() {
+        return dateFin;
+    }
+
     public String getDescription() {
         return description;
     }
@@ -46,7 +63,10 @@ public class Produit {
 
     @Override
     public String toString() {
-        return nom + " : " + description;
+        if (dateDebut != null) {
+            return nom + " : " + description + "( disponible du " + dateDebut + " au " + dateFin + " )";
+        }
+        return nom + " : " + description + " (indisponible) ";
     }
 
     @Override

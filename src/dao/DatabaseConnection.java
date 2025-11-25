@@ -8,9 +8,9 @@ public class DatabaseConnection {
 
     static {
         try {
-            System.out.print("Loading Oracle driver... ");
+            //System.out.print("Loading Oracle driver... ");
             DriverManager.registerDriver(new oracle.jdbc.driver.OracleDriver());
-            System.out.println("loaded");
+            //System.out.println("loaded");
         } catch (Exception e) {
             e.printStackTrace();
             System.out.println("failed to load oracle driver");
